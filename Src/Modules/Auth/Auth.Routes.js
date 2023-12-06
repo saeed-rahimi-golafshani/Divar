@@ -2,8 +2,8 @@
  const AuthController = require("./Auth.Controller");
  const router = Router();
 
- router.post("/send_otp", AuthController.sendOTP);
- router.post("/check_otp", AuthController.checkOTP);
+ router.post("/send-otp", AuthController.sendOTP);
+ router.post("/check-otp", AuthController.checkOTP);
 
  module.exports = {
   AuthRoutes: router

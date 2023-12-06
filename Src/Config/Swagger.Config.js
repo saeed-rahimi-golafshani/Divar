@@ -11,7 +11,7 @@ function swaggerConfig(app){
       info: {
         title: "Divar_backend",
         description: "Divar App and website",
-        version: "1.0.0"
+        version: "2.0.0"
       },
       servers : [{
         url : `${process.env.BASEURL}:${process.env.PORT}`
@@ -27,9 +27,9 @@ function swaggerConfig(app){
       },
       security: [{BearerAuth: []}]
     },
-    apis: []
-  });
-  const swagger = swaggerUi.setup(swaggerDocument, {});
+    apis: ["./Src/Modules/**/*.Swagger.js"]
+  })
+  const swagger = swaggerUi.setup(swaggerDocument, {explorer: true}, {});
   app.use("/", swaggerUi.serve, swagger )
 }
 
