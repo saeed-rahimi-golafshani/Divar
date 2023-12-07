@@ -5,6 +5,7 @@ const AuthMessage = {
   otpCodeExpired: "otp code expired please try again",
   otpCodeIsIncorrect: "otp code is incorrect",
   LogingSuccessFully: "your login successfully",
+  logOutSuccessfully: "your logout successfully"
   
 };
 

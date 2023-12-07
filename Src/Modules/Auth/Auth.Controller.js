@@ -1,3 +1,4 @@
+const Cookei_Env = require("../../Common/Constant/Cookie.enum");
 const Node_Env = require("../../Common/Constant/Env.enum");
 const AuthMessage = require("./Auth.Mesaages");
 const authService = require("./Auth.Service");
@@ -11,7 +12,6 @@ class AuthController{
   } 
   async sendOTP(req, res, next){
     try {
-      console.log("saeed");
       const { mobile } = req.body;
       await this.#service.sendOTP(mobile);
       return res.json({
@@ -36,6 +36,15 @@ class AuthController{
       next(error)
     }
   };
+  async logOut(req, res, next){
+    try {
+      return res.clearCookie(Cookei_Env.AccessToken).status(200).json({
+        message: AuthMessage.logOutSuccessfully
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
 };
  
 module.exports = new AuthController();
