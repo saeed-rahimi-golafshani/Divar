@@ -9,6 +9,7 @@ class UserService{
     autoBind(this);
     this.#model = UserModel
   }
+  
  
 };
 
