@@ -30,8 +30,6 @@ class AuthService{
     user.otp = otp;
     await user.save();
     return user;
-    
-    
   };
   async checkOTP(mobile, code){
     const user = await this.checkExistUserByMobile(mobile);
