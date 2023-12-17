@@ -7,6 +7,7 @@ const AllExceptionHandler = require("./Src/Common/Exception/All_exception.handle
 const cors = require("cors");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const expressEjsLayouts = require("express-ejs-layouts");
 dotenv.config();
 
 async function main(){
@@ -16,6 +17,12 @@ async function main(){
   app.use(express.json());
   app.use(express.urlencoded({extended: true}));
   app.use(cookieParser(process.env.TOKEN_SECRET_KEY));
+  // ejs config
+  app.use(express.static("Public"));
+  app.use(expressEjsLayouts);
+  app.set("view engine", "ejs");
+  app.set("layout", "./Layouts/Panel/Main.ejs");
+
   app.use(cors());
   app.use(morgan("dev"));
   require("./Src/Config/Mongoose.Config");

@@ -30,7 +30,7 @@ function swaggerConfig(app){
     apis: ["./Src/Modules/**/*.Swagger.js"]
   })
   const swagger = swaggerUi.setup(swaggerDocument, {explorer: true}, {});
-  app.use("/", swaggerUi.serve, swagger )
+  app.use("/swagger", swaggerUi.serve, swagger )
 }
 
 
