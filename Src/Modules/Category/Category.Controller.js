@@ -27,6 +27,17 @@ class CategoryController{
         } catch (error) {
             next(error)
         }
+    };
+    async removeCategoryById(req, res, next){
+        try {
+            const { id } = req.params;
+            const categories = await this.#service.removeCategoryById(id);
+            return res.json({
+                message: CategoryMessage.remove
+            });
+        } catch (error) {
+            next(error)
+        }
     }
 };
 
